@@ -19,9 +19,7 @@
       padding: 2rem 1rem;
     }
 
-    .pdx-root {
-      display: flex; flex-direction: column; align-items: center;
-    }
+    .pdx-root { display:flex; flex-direction:column; align-items:center; }
 
     .pdx-body {
       width: 520px; background: #d00000;
@@ -29,46 +27,37 @@
       box-shadow: inset -6px -6px 0 #8b0000, inset 6px 6px 0 #ff4444, 0 10px 32px #0008;
       padding: 20px 20px 28px;
     }
-
     .pdx-hinge {
       width: 520px; height: 20px; background: #111;
       display: flex; align-items: center; justify-content: center; gap: 8px;
       box-shadow: 0 3px 6px #0006;
     }
     .pdx-hinge-dot { width:9px; height:9px; border-radius:50%; background:#333; }
-
     .pdx-bottom-body {
       width: 520px; background: #d00000;
       border-radius: 14px 14px 34px 34px;
       box-shadow: inset -6px -6px 0 #8b0000, inset 6px 6px 0 #ff4444, 0 10px 32px #0008;
       padding: 22px 20px 32px;
     }
-
     .pdx-top-bar { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
-
     .pdx-blue-light {
       width:66px; height:66px; border-radius:50%;
       background: radial-gradient(circle at 35% 30%, #aaeeff, #1188dd);
       border: 5px solid #ffffff55;
       box-shadow: 0 0 0 4px #ffffff22, 0 0 20px #33aaff99;
-      flex-shrink:0;
-      animation: glow 2.5s ease-in-out infinite;
+      flex-shrink:0; animation: glow 2.5s ease-in-out infinite;
     }
     @keyframes glow {
       0%,100%{ box-shadow:0 0 0 4px #ffffff22, 0 0 14px #33aaff88; }
       50%{ box-shadow:0 0 0 4px #ffffff44, 0 0 30px #33aaffcc; }
     }
-
     .pdx-small-lights { display:flex; gap:10px; align-items:center; }
     .sl { width:20px; height:20px; border-radius:50%; border:3px solid #ffffff33; }
-
     .pdx-divider {
-      height:7px;
-      background: linear-gradient(to bottom, #8b0000, #cc0000);
+      height:7px; background: linear-gradient(to bottom, #8b0000, #cc0000);
       margin: 0 -20px 16px;
       border-top:3px solid #660000; border-bottom:3px solid #ff3333;
     }
-
     .pdx-screen-bezel {
       background:#222; border-radius:10px; padding:10px;
       border:4px solid #111;
@@ -76,53 +65,45 @@
       margin-bottom:16px;
     }
 
+    /* COUNTDOWN */
     .pdx-screen {
       background:#9bbc0f; border-radius:6px;
       padding:14px 14px 16px; min-height:310px;
       position:relative; display:flex; flex-direction:column; gap:9px;
     }
-
     .pdx-scanlines {
       position:absolute; inset:0;
       background: repeating-linear-gradient(to bottom, transparent, transparent 3px, #00000011 3px, #00000011 4px);
       pointer-events:none; border-radius:6px; z-index:2;
     }
-
     .pdx-row { display:flex; justify-content:space-between; font-size:9px; color:#0f380f; letter-spacing:0.05em; }
     .pdx-title { text-align:center; font-size:13px; color:#0f380f; text-shadow:1px 1px 0 #8bac0f; margin:2px 0; }
     .pdx-type-badge { text-align:center; font-size:7px; color:#306230; letter-spacing:0.08em; }
-
     .pdx-progress-wrap { background:#0f380f; border-radius:3px; height:11px; overflow:hidden; margin:3px 0; }
     .pdx-progress-bar { height:100%; background:#9bbc0f; box-shadow:0 0 6px #306230; transition:width 1s linear; }
     .pdx-progress-label { display:flex; justify-content:space-between; font-size:6px; color:#306230; margin-top:3px; }
-
     .pdx-main-row { display:flex; gap:10px; align-items:flex-start; margin-top:4px; }
-
     .pdx-img-box {
       width:130px; min-height:130px; flex-shrink:0;
       background:#0f380f; border-radius:4px;
       display:flex; align-items:center; justify-content:center;
     }
-
     .pdx-stats { display:flex; flex-direction:column; gap:6px; flex:1; }
     .pdx-stat-box { background:#0f380f; border-radius:3px; padding:7px 6px; text-align:center; }
     .pdx-stat-num { display:block; font-size:17px; color:#9bbc0f; text-shadow:0 0 6px #306230; line-height:1; }
     .pdx-stat-lbl { display:block; font-size:6px; color:#306230; margin-top:4px; letter-spacing:0.06em; }
-
     .pdx-footer-text {
       font-size:7px; color:#306230; line-height:2.2;
       border-top:1px solid #306230; padding-top:7px; letter-spacing:0.04em;
     }
-
     .cursor {
       display:inline-block; width:8px; height:12px; background:#0f380f;
       animation:blink 1s step-end infinite; vertical-align:middle; margin-left:2px;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
     .silhouette { filter:brightness(0); transition:filter 1.8s ease; }
-    .silhouette.revealed { filter:brightness(1); }
 
+    /* FLASH */
     .capture-flash {
       position:absolute; inset:0; background:white;
       border-radius:6px; opacity:0; pointer-events:none; z-index:10;
@@ -130,6 +111,31 @@
     }
     @keyframes flash { 0%{opacity:1} 100%{opacity:0} }
 
+    /* OAK */
+    .oak-screen {
+      background:#9bbc0f; border-radius:6px;
+      min-height:310px; position:relative;
+      display:flex; flex-direction:column; overflow:hidden;
+    }
+    .oak-portrait-area {
+      flex:1; display:flex; align-items:center; justify-content:center;
+      padding:10px 0 4px;
+      animation: oakSlideIn 0.5s ease both;
+    }
+    @keyframes oakSlideIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+    .oak-textbox {
+      background:#0f380f; padding:10px 12px 10px;
+      position:relative; min-height:96px;
+    }
+    .oak-name { font-size:6px; color:#4a7a1a; margin-bottom:5px; letter-spacing:0.06em; }
+    .oak-text { font-size:6px; color:#9bbc0f; line-height:2.5; letter-spacing:0.03em; white-space:pre-line; min-height:52px; }
+    .oak-next {
+      position:absolute; bottom:8px; right:10px;
+      font-size:8px; color:#4a7a1a;
+      animation:blink 0.7s step-end infinite; opacity:0;
+    }
+
+    /* CAPTURA FINAL */
     .capture-screen {
       background:#9bbc0f; border-radius:6px;
       padding:14px 14px 16px; min-height:310px;
@@ -138,32 +144,28 @@
       animation:fadeIn 0.9s ease;
     }
     @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
-
     .capture-img-box {
       width:130px; height:130px; background:#0f380f; border-radius:4px;
       display:flex; align-items:center; justify-content:center;
     }
-
     .capture-msg { font-size:11px; color:#0f380f; text-align:center; line-height:2; }
-
     .days-together {
       background:#0f380f; border-radius:3px;
       padding:8px 20px; text-align:center; width:100%;
     }
     .days-together-num { display:block; font-size:24px; color:#9bbc0f; text-shadow:0 0 8px #306230; }
     .days-together-lbl { display:block; font-size:6px; color:#306230; margin-top:5px; letter-spacing:0.06em; }
-
     .capture-sub {
       font-size:7px; color:#306230; text-align:center; line-height:2.2;
       border-top:1px solid #306230; padding-top:7px; letter-spacing:0.04em; width:100%;
     }
-
     .hearts { display:flex; gap:10px; justify-content:center; }
     .heart { font-size:16px; color:#0f380f; animation:heartbeat 1.4s ease-in-out infinite; }
     .heart:nth-child(2){ animation-delay:0.2s; }
     .heart:nth-child(3){ animation-delay:0.4s; }
     @keyframes heartbeat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.4)} }
 
+    /* CONTROLES */
     .pdx-controls { display:flex; justify-content:space-between; align-items:center; padding:0 6px; }
     .dpad { width:80px; height:80px; position:relative; }
     .dpad-h { position:absolute; top:33%; left:0; width:100%; height:34%; background:#8b0000; border-radius:4px; box-shadow:inset 0 3px 0 #660000,inset 0 -3px 0 #aa2222; }
@@ -173,10 +175,12 @@
     .pdx-ss-btn { width:56px; height:14px; border-radius:7px; background:#8b0000; box-shadow:0 3px 0 #550000; transform:rotate(-15deg); }
     .pdx-ss-lbl { font-size:6px; color:#aa2222; letter-spacing:0.05em; transform:rotate(-15deg); display:block; text-align:center; margin-top:3px; }
     .pdx-ab { display:flex; gap:12px; align-items:flex-end; margin-bottom:6px; }
-    .pdx-btn-a { width:46px; height:46px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#cc2222,#880000); box-shadow:0 4px 0 #550000,inset 0 -3px 6px #00000044; display:flex; align-items:center; justify-content:center; font-size:11px; color:#ff8888; }
+    .pdx-btn-a { width:46px; height:46px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#cc2222,#880000); box-shadow:0 4px 0 #550000,inset 0 -3px 6px #00000044; display:flex; align-items:center; justify-content:center; font-size:11px; color:#ff8888; cursor:pointer; user-select:none; }
     .pdx-btn-b { width:38px; height:38px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#cc2222,#880000); box-shadow:0 4px 0 #550000,inset 0 -3px 6px #00000044; display:flex; align-items:center; justify-content:center; font-size:10px; color:#ff8888; margin-bottom:4px; }
     .pdx-speaker { display:flex; flex-direction:column; gap:5px; }
     .sp-line { height:4px; background:#8b0000; border-radius:2px; box-shadow:inset 0 1px 0 #660000; }
+    .btn-pulse { animation: btnpulse 1.2s ease-in-out infinite; }
+    @keyframes btnpulse { 0%,100%{box-shadow:0 4px 0 #550000,inset 0 -3px 6px #00000044} 50%{box-shadow:0 4px 0 #550000,0 0 14px #ff444499,inset 0 -3px 6px #00000044} }
   </style>
 </head>
 <body>
@@ -196,8 +200,7 @@
       <div id="pdx-screen" class="pdx-screen">
         <div class="pdx-scanlines"></div>
         <div class="pdx-row">
-          <span>NO.001</span>
-          <span id="end-date">17/04/2026</span>
+          <span>NO.001</span><span>17/04/2026</span>
         </div>
         <div class="pdx-title">HONEYMOON</div>
         <div class="pdx-type-badge">PRE-RELACIONAL / EFIMERO</div>
@@ -205,13 +208,11 @@
           <div class="pdx-progress-bar" id="progress-bar" style="width:100%"></div>
         </div>
         <div class="pdx-progress-label">
-          <span>20 MAR</span>
-          <span id="progress-text">DIA 0 / 29</span>
-          <span>17 ABR</span>
+          <span>20 MAR</span><span id="progress-text">DIA 0 / 29</span><span>17 ABR</span>
         </div>
         <div class="pdx-main-row">
           <div class="pdx-img-box">
-            <svg id="pangoro-svg" class="silhouette" width="122" height="126" viewBox="0 0 84 88" xmlns="http://www.w3.org/2000/svg">
+            <svg class="silhouette" width="122" height="126" viewBox="0 0 84 88" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="42" cy="60" rx="26" ry="24" fill="#2a2a2a"/>
               <circle cx="42" cy="30" r="20" fill="#2a2a2a"/>
               <ellipse cx="25" cy="14" rx="7" ry="8" fill="#2a2a2a"/>
@@ -240,18 +241,17 @@
         </div>
         <div class="pdx-footer-text">
           HABITAT: ASTURIAS / SEVILLA<br>
-          DEBILIDAD: LA REALIDAD<br>
-          EVOLUCION: <span id="evol-text">INMINENTE</span><span class="cursor"></span>
+          HABILIDAD: EQUIPO INFINITO<br>
+          PODER ESPECIAL: DISTANCIA CERO<br>
+          ESTADO: INVENCIBLES<span class="cursor"></span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="pdx-hinge">
-    <div class="pdx-hinge-dot"></div>
-    <div class="pdx-hinge-dot"></div>
-    <div class="pdx-hinge-dot"></div>
-    <div class="pdx-hinge-dot"></div>
+    <div class="pdx-hinge-dot"></div><div class="pdx-hinge-dot"></div>
+    <div class="pdx-hinge-dot"></div><div class="pdx-hinge-dot"></div>
     <div class="pdx-hinge-dot"></div>
   </div>
 
@@ -264,7 +264,7 @@
       </div>
       <div class="pdx-ab">
         <div class="pdx-btn-b">B</div>
-        <div class="pdx-btn-a">A</div>
+        <div class="pdx-btn-a" id="btn-a" onclick="pressA()">A</div>
       </div>
       <div class="pdx-speaker">
         <div class="sp-line" style="width:42px"></div>
@@ -278,23 +278,111 @@
 </div>
 
 <script>
-  // Contador honeymoon: termina HOY a las 23:59
-  const today = new Date();
-  const END = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 0).getTime();
-  const START = new Date('2026-03-20T00:00:00').getTime();
-  const TOTAL = END - START;
-
-  // Días juntos desde el 6 de abril
+  const today    = new Date();
+  const END      = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 0).getTime();
+  const START    = new Date('2026-03-20T00:00:00').getTime();
+  const TOTAL    = END - START;
   const TOGETHER = new Date('2026-04-06T00:00:00').getTime();
 
   let revealed = false;
+  let oakPhase = 0;
+  let typing   = false;
+  let inOak    = false;
 
   function pad(n){ return String(Math.max(0,n)).padStart(2,'0'); }
 
-  function showFinal(){
-    if(revealed) return;
-    revealed = true;
+  const OAK_SVG = `<svg width="110" height="130" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+    <rect x="18" y="2" width="20" height="4" fill="#0f380f"/>
+    <rect x="14" y="4" width="4" height="4" fill="#0f380f"/>
+    <rect x="38" y="4" width="4" height="4" fill="#0f380f"/>
+    <rect x="12" y="6" width="2" height="6" fill="#0f380f"/>
+    <rect x="42" y="6" width="2" height="6" fill="#0f380f"/>
+    <rect x="14" y="8" width="28" height="16" fill="#8bac6a"/>
+    <rect x="18" y="12" width="4" height="4" fill="#0f380f"/>
+    <rect x="34" y="12" width="4" height="4" fill="#0f380f"/>
+    <rect x="19" y="13" width="2" height="2" fill="#9bbc0f"/>
+    <rect x="35" y="13" width="2" height="2" fill="#9bbc0f"/>
+    <rect x="17" y="10" width="6" height="2" fill="#4a5a2a"/>
+    <rect x="33" y="10" width="6" height="2" fill="#4a5a2a"/>
+    <rect x="26" y="16" width="4" height="2" fill="#4a5a2a"/>
+    <rect x="22" y="20" width="12" height="2" fill="#0f380f"/>
+    <rect x="20" y="18" width="2" height="2" fill="#0f380f"/>
+    <rect x="34" y="18" width="2" height="2" fill="#0f380f"/>
+    <rect x="22" y="24" width="12" height="4" fill="#8bac6a"/>
+    <rect x="10" y="28" width="36" height="24" fill="#9bbc0f"/>
+    <rect x="12" y="28" width="32" height="22" fill="#c8d8a0"/>
+    <rect x="22" y="28" width="12" height="18" fill="#9bbc0f"/>
+    <rect x="24" y="28" width="8" height="16" fill="#a8c070"/>
+    <rect x="27" y="32" width="2" height="2" fill="#0f380f"/>
+    <rect x="27" y="37" width="2" height="2" fill="#0f380f"/>
+    <rect x="27" y="42" width="2" height="2" fill="#0f380f"/>
+    <rect x="6" y="28" width="6" height="18" fill="#c8d8a0"/>
+    <rect x="44" y="28" width="6" height="18" fill="#c8d8a0"/>
+    <rect x="4" y="44" width="8" height="6" fill="#8bac6a"/>
+    <rect x="44" y="44" width="8" height="6" fill="#8bac6a"/>
+    <rect x="14" y="52" width="12" height="10" fill="#4a6a8a"/>
+    <rect x="30" y="52" width="12" height="10" fill="#4a6a8a"/>
+    <rect x="12" y="62" width="14" height="4" fill="#0f380f"/>
+    <rect x="30" y="62" width="14" height="4" fill="#0f380f"/>
+  </svg>`;
 
+  const oakMessages = [
+    "Los cambios dan miedo...\npero como dice Kha'Zix:\n\"Los cambios son buenos\".",
+    "Todo entrenador Pokemon\npasa por etapas dificiles.\nPero no tienes por que\nrecorrer este camino solo.",
+    "!UN MOMENTO!\nTu Loren aprendio\n!VUELO!",
+    "Ahora podeis veros\nsiempre que lo necesites.\nY siempre estara ahi\ncuando lo necesites.",
+  ];
+
+  function typeText(text, el, cb){
+    typing = true;
+    el.textContent = '';
+    let i = 0;
+    const nxt = document.getElementById('oak-next');
+    if(nxt) nxt.style.opacity = '0';
+    const iv = setInterval(()=>{
+      if(i < text.length){
+        el.textContent += text[i];
+        i++;
+      } else {
+        clearInterval(iv);
+        typing = false;
+        if(nxt) nxt.style.opacity = '1';
+        if(cb) cb();
+      }
+    }, 36);
+  }
+
+  function showOakScreen(){
+    inOak = true;
+    oakPhase = 0;
+    const screen = document.getElementById('pdx-screen');
+    screen.className = 'oak-screen';
+    screen.innerHTML = `
+      <div class="pdx-scanlines"></div>
+      <div class="oak-portrait-area">${OAK_SVG}</div>
+      <div class="oak-textbox">
+        <div class="oak-name">LOREN:</div>
+        <div class="oak-text" id="oak-text"></div>
+        <div class="oak-next" id="oak-next">▼</div>
+      </div>`;
+    document.getElementById('btn-a').classList.add('btn-pulse');
+    typeText(oakMessages[0], document.getElementById('oak-text'));
+  }
+
+  function pressA(){
+    if(!inOak) return;
+    if(typing) return;
+    oakPhase++;
+    if(oakPhase < oakMessages.length){
+      const el = document.getElementById('oak-text');
+      if(el) typeText(oakMessages[oakPhase], el);
+    } else {
+      inOak = false;
+      showFinalCapture();
+    }
+  }
+
+  function showFinalCapture(){
     const screen = document.getElementById('pdx-screen');
     const flash = document.createElement('div');
     flash.className = 'capture-flash';
@@ -305,18 +393,16 @@
       screen.className = 'capture-screen';
       screen.innerHTML = `
         <div class="pdx-scanlines"></div>
-        <div class="pdx-row" style="width:100%">
-          <span>NO.675</span><span>06/04/2026</span>
-        </div>
+        <div class="pdx-row" style="width:100%"><span>NO.675</span><span>06/04/2026</span></div>
         <div class="pdx-title" style="font-size:11px">!LOREN SALVAJE!</div>
-        <div class="pdx-type-badge">TIPO: LUCHA / PSIQUICO</div>
+        <div class="pdx-type-badge">TIPO: LUCHA / VOLADOR</div>
         <div class="hearts">
-          <span class="heart">&#9829;</span>
-          <span class="heart">&#9829;</span>
-          <span class="heart">&#9829;</span>
+          <span class="heart">&#9829;</span><span class="heart">&#9829;</span><span class="heart">&#9829;</span>
         </div>
         <div class="capture-img-box">
           <svg width="122" height="126" viewBox="0 0 84 88" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="10" cy="45" rx="10" ry="6" fill="#88aaff" opacity="0.7" transform="rotate(-20 10 45)"/>
+            <ellipse cx="74" cy="45" rx="10" ry="6" fill="#88aaff" opacity="0.7" transform="rotate(20 74 45)"/>
             <ellipse cx="42" cy="60" rx="26" ry="24" fill="#2a2a2a"/>
             <circle cx="42" cy="30" r="20" fill="#d4d4d4"/>
             <ellipse cx="25" cy="14" rx="7" ry="8" fill="#2a2a2a"/>
@@ -325,8 +411,8 @@
             <ellipse cx="59" cy="15" rx="4" ry="5" fill="#555"/>
             <ellipse cx="34" cy="28" rx="7" ry="6" fill="#2a2a2a"/>
             <ellipse cx="50" cy="28" rx="7" ry="6" fill="#2a2a2a"/>
-            <circle cx="34" cy="28" r="3" fill="#cc88ff"/>
-            <circle cx="50" cy="28" r="3" fill="#cc88ff"/>
+            <circle cx="34" cy="28" r="3" fill="#88aaff"/>
+            <circle cx="50" cy="28" r="3" fill="#88aaff"/>
             <ellipse cx="42" cy="35" rx="4" ry="3" fill="#2a2a2a"/>
             <ellipse cx="18" cy="62" rx="9" ry="14" fill="#2a2a2a" transform="rotate(-15 18 62)"/>
             <ellipse cx="66" cy="60" rx="9" ry="14" fill="#2a2a2a" transform="rotate(15 66 60)"/>
@@ -343,20 +429,30 @@
         </div>
         <div class="capture-sub">
           HABITAT: ASTURIAS / SEVILLA<br>
-          ESTADO: EN CURSO<span class="cursor"></span>
+          ESTADO: INVENCIBLES<span class="cursor"></span>
         </div>`;
 
+      document.getElementById('btn-a').classList.remove('btn-pulse');
       setInterval(()=>{
         const el = document.getElementById('days-together');
         if(el) el.textContent = Math.floor((Date.now() - TOGETHER) / 86400000);
       }, 60000);
-    }, 800);
+    }, 600);
+  }
+
+  function showFinal(){
+    if(revealed) return;
+    revealed = true;
+    const screen = document.getElementById('pdx-screen');
+    const flash = document.createElement('div');
+    flash.className = 'capture-flash';
+    screen.appendChild(flash);
+    setTimeout(()=>{ showOakScreen(); }, 800);
   }
 
   function tick(){
     const now  = Date.now();
     const diff = END - now;
-
     const bar = document.getElementById('progress-bar');
     const pt  = document.getElementById('progress-text');
     if(bar && !revealed){
@@ -367,23 +463,13 @@
       const totalDays = Math.round(TOTAL / 86400000);
       if(pt) pt.textContent = 'DIA ' + Math.min(dayElapsed, totalDays) + ' / ' + totalDays;
     }
-
     if(diff <= 0){ showFinal(); return; }
-
     const d=Math.floor(diff/86400000);
     const h=Math.floor((diff%86400000)/3600000);
     const m=Math.floor((diff%3600000)/60000);
     const s=Math.floor((diff%60000)/1000);
-
     const set=(id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=pad(v); };
     set('days',d); set('hours',h); set('minutes',m); set('seconds',s);
-
-    const evolEl = document.getElementById('evol-text');
-    if(evolEl){
-      if(d < 1)      evolEl.textContent = '!HOY!';
-      else if(d < 3) evolEl.textContent = 'INMINENTE';
-      else           evolEl.textContent = 'PENDIENTE';
-    }
   }
 
   tick();

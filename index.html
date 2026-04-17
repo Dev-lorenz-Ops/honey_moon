@@ -101,7 +101,7 @@
       animation:blink 1s step-end infinite; vertical-align:middle; margin-left:2px;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-    .silhouette { filter:brightness(0); transition:filter 1.8s ease; }
+    .silhouette { filter:brightness(0); }
 
     /* FLASH */
     .capture-flash {
@@ -125,14 +125,22 @@
     @keyframes oakSlideIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
     .oak-textbox {
       background:#0f380f; padding:10px 12px 10px;
-      position:relative; min-height:96px;
+      position:relative; min-height:110px;
     }
     .oak-name { font-size:6px; color:#4a7a1a; margin-bottom:5px; letter-spacing:0.06em; }
     .oak-text { font-size:6px; color:#9bbc0f; line-height:2.5; letter-spacing:0.03em; white-space:pre-line; min-height:52px; }
+    .oak-footer {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-top:6px; opacity:0; transition:opacity 0.3s;
+    }
+    .oak-footer.visible { opacity:1; }
+    .oak-press {
+      font-size:5px; color:#4a7a1a; letter-spacing:0.06em;
+      animation:blink 1s step-end infinite;
+    }
     .oak-next {
-      position:absolute; bottom:8px; right:10px;
       font-size:8px; color:#4a7a1a;
-      animation:blink 0.7s step-end infinite; opacity:0;
+      animation:blink 0.7s step-end infinite;
     }
 
     /* CAPTURA FINAL */
@@ -333,12 +341,13 @@
     "Ahora podeis veros\nsiempre que lo necesites.\nY siempre estara ahi\ncuando lo necesites.",
   ];
 
-  function typeText(text, el, cb){
+  function typeText(text, el, isLast){
     typing = true;
     el.textContent = '';
     let i = 0;
-    const nxt = document.getElementById('oak-next');
-    if(nxt) nxt.style.opacity = '0';
+    const footer = document.getElementById('oak-footer');
+    if(footer) footer.classList.remove('visible');
+
     const iv = setInterval(()=>{
       if(i < text.length){
         el.textContent += text[i];
@@ -346,8 +355,9 @@
       } else {
         clearInterval(iv);
         typing = false;
-        if(nxt) nxt.style.opacity = '1';
-        if(cb) cb();
+        if(footer) footer.classList.add('visible');
+        const pressEl = document.getElementById('oak-press');
+        if(pressEl) pressEl.textContent = isLast ? '[ A ] Ver resultado' : '[ A ] Continuar';
       }
     }, 36);
   }
@@ -363,10 +373,13 @@
       <div class="oak-textbox">
         <div class="oak-name">LOREN:</div>
         <div class="oak-text" id="oak-text"></div>
-        <div class="oak-next" id="oak-next">▼</div>
+        <div class="oak-footer" id="oak-footer">
+          <span class="oak-press" id="oak-press">[ A ] Continuar</span>
+          <span class="oak-next">▼</span>
+        </div>
       </div>`;
     document.getElementById('btn-a').classList.add('btn-pulse');
-    typeText(oakMessages[0], document.getElementById('oak-text'));
+    typeText(oakMessages[0], document.getElementById('oak-text'), false);
   }
 
   function pressA(){
@@ -375,7 +388,8 @@
     oakPhase++;
     if(oakPhase < oakMessages.length){
       const el = document.getElementById('oak-text');
-      if(el) typeText(oakMessages[oakPhase], el);
+      const isLast = oakPhase === oakMessages.length - 1;
+      if(el) typeText(oakMessages[oakPhase], el, isLast);
     } else {
       inOak = false;
       showFinalCapture();

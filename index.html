@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pokédex — Relación Capturada</title>
+<title>Pokédex — 2 Meses Capturados</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -83,6 +83,42 @@ body{background:#1a1a1a;min-height:100vh;display:flex;align-items:center;justify
 .reg-bar-fill{height:100%;background:#9bbc0f;width:0;animation:fill-bar 1.5s ease-out .5s forwards}
 @keyframes fill-bar{to{width:100%}}
 .reg-sub{font-size:clamp(5px,1.4vw,6px);color:#306230;text-align:center;line-height:2}
+
+/* TERMINAL MES 2 */
+.terminal-screen{display:none;position:absolute;inset:0;background:#0a0a0a;border-radius:4px;z-index:12;flex-direction:column;padding:clamp(8px,3vw,12px);gap:0;overflow:hidden}
+.terminal-screen.active{display:flex}
+.terminal-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #33ff33;padding-bottom:4px;margin-bottom:6px;flex-shrink:0}
+.terminal-title{font-size:clamp(4px,1.3vw,6px);color:#33ff33;letter-spacing:.08em}
+.terminal-badge{font-size:clamp(4px,1.2vw,5px);color:#33ff33;border:1px solid #33ff33;padding:1px 4px;border-radius:2px;animation:blink 1s step-end infinite}
+.terminal-log{flex:1;overflow:hidden;display:flex;flex-direction:column;gap:4px;justify-content:flex-start}
+.log-entry{display:flex;gap:6px;align-items:flex-start;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
+.log-entry.visible{opacity:1;transform:translateY(0)}
+.log-icon{font-size:clamp(8px,2.5vw,10px);flex-shrink:0;margin-top:1px}
+.log-content{flex:1}
+.log-tag{font-size:clamp(4px,1.2vw,5px);letter-spacing:.06em;margin-bottom:2px}
+.log-text{font-size:clamp(5px,1.5vw,6.5px);color:#ccffcc;line-height:1.8;letter-spacing:.02em}
+.tag-viaje{color:#44aaff}
+.tag-batalla{color:#ff4444}
+.tag-sorpresa{color:#ffcc00}
+.tag-estado{color:#cc44ff}
+.tag-resultado{color:#33ff33}
+.terminal-footer{border-top:1px solid #33ff33;padding-top:5px;margin-top:4px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.terminal-prompt{font-size:clamp(4px,1.2vw,5px);color:#33ff33}
+.terminal-cursor{display:inline-block;width:6px;height:9px;background:#33ff33;animation:blink 0.8s step-end infinite;vertical-align:middle;margin-left:2px}
+.terminal-btn{font-size:clamp(4px,1.2vw,5px);color:#33ff33;border:1px solid #33ff33;padding:2px 5px;border-radius:2px;cursor:pointer}
+
+/* PANTALLA FINAL MES 2 */
+.final2-screen{display:none;position:absolute;inset:0;background:#9bbc0f;border-radius:4px;z-index:13;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:clamp(10px,3vw,14px)}
+.final2-screen.active{display:flex;animation:reg-flash .5s ease-in-out}
+.final2-title{font-size:clamp(8px,2.5vw,11px);color:#0f380f;text-align:center;line-height:2}
+.final2-big{font-size:clamp(16px,5vw,22px);color:#0f380f;text-align:center}
+.final2-sub{font-size:clamp(5px,1.5vw,7px);color:#306230;text-align:center;line-height:2.4;border-top:1px solid #306230;padding-top:6px;width:100%}
+.final2-hearts{display:flex;gap:6px;justify-content:center}
+.final2-heart{font-size:clamp(14px,4vw,20px);color:#0f380f;animation:heartbeat 0.8s ease-in-out infinite}
+.final2-heart:nth-child(2){animation-delay:.15s}
+.final2-heart:nth-child(3){animation-delay:.3s}
+.final2-heart:nth-child(4){animation-delay:.45s}
+.final2-heart:nth-child(5){animation-delay:.6s}
 </style>
 </head>
 <body>
@@ -146,6 +182,95 @@ body{background:#1a1a1a;min-height:100vh;display:flex;align-items:center;justify
           HABILIDAD: EQUIPO INFINITO<br>
           PODER ESPECIAL: DISTANCIA CERO<br>
           ESTADO: INVENCIBLES<span class="cursor"></span>
+        </div>
+
+        <!-- TERMINAL MES 2 -->
+        <div class="terminal-screen" id="terminal-screen">
+          <div class="terminal-header">
+            <span class="terminal-title">POKEDEX OS v2.0 — REGISTRO MES 2</span>
+            <span class="terminal-badge">EN VIVO</span>
+          </div>
+          <div class="terminal-log" id="terminal-log">
+            <div class="log-entry" data-idx="0">
+              <span class="log-icon">✈️</span>
+              <div class="log-content">
+                <div class="log-tag tag-viaje">[ DESPLAZAMIENTO ]</div>
+                <div class="log-text">LOREN viaja al norte. Territorio de HERNANSITO. No es la primera vez que cruza la peninsula por amor.</div>
+              </div>
+            </div>
+            <div class="log-entry" data-idx="1">
+              <span class="log-icon">🏔️</span>
+              <div class="log-content">
+                <div class="log-tag tag-viaje">[ CANGAS DE NARCEA ]</div>
+                <div class="log-text">Base del entrenador HERNANSITO. Territorio explorado con exito. Duracion: ~7 dias.</div>
+              </div>
+            </div>
+            <div class="log-entry" data-idx="2">
+              <span class="log-icon">⚡</span>
+              <div class="log-content">
+                <div class="log-tag tag-batalla">[ BATALLA REGISTRADA — ASTURIAS ]</div>
+                <div class="log-text">Conflicto detectado en territorio norte. Ambos Pokemon resistieron. Vinculo: estable.</div>
+              </div>
+            </div>
+            <div class="log-entry" data-idx="3">
+              <span class="log-icon">🎬</span>
+              <div class="log-content">
+                <div class="log-tag tag-sorpresa">[ OVIEDO — EVENTO ESPECIAL ]</div>
+                <div class="log-text">Visionado de "El Diablo Viste de Prada 2". La pelicula que inicio todo. La excusa perfecta de dos entrenadores que no sabian la fecha de estreno.</div>
+              </div>
+            </div>
+            <div class="log-entry" data-idx="4">
+              <span class="log-icon">⚡</span>
+              <div class="log-content">
+                <div class="log-tag tag-sorpresa">[ SEVILLA — ATAQUE SORPRESA ]</div>
+                <div class="log-text">HERNANSITO usa ONDA TRUENO sin previo aviso. LOREN sufre PARALISIS. No puede moverse. Literalmente.</div>
+              </div>
+            </div>
+            <div class="log-entry" data-idx="5">
+              <span class="log-icon">😴</span>
+              <div class="log-content">
+                <div class="log-tag tag-estado">[ UTRERA — USO DE BOSTEZO ]</div>
+                <div class="log-text">LOREN uso BOSTEZO. Efecto contagio: HERNANSITO infectado. Ambos entrenadores K.O. en el sofa. Critico.</div>
+              </div>
+            </div>
+            <div class="log-entry" data-idx="6">
+              <span class="log-icon">💥</span>
+              <div class="log-content">
+                <div class="log-tag tag-batalla">[ BATALLA REGISTRADA — POST SEVILLA ]</div>
+                <div class="log-text">Conflicto detectado. El mas duro del mes. Ambos Pokemon al limite de PP. Ninguno abandono.</div>
+              </div>
+            </div>
+            <div class="log-entry" data-idx="7">
+              <span class="log-icon">🏆</span>
+              <div class="log-content">
+                <div class="log-tag tag-resultado">[ RESULTADO FINAL ]</div>
+                <div class="log-text">BATALLAS GANADAS: TODAS. Dos meses. Dos entrenadores. Un equipo. INVENCIBLES.</div>
+              </div>
+            </div>
+          </div>
+          <div class="terminal-footer">
+            <span class="terminal-prompt">&gt; PULSA A PARA CONTINUAR<span class="terminal-cursor"></span></span>
+          </div>
+        </div>
+
+        <!-- PANTALLA FINAL MES 2 -->
+        <div class="final2-screen" id="final2-screen">
+          <div class="pdx-scanlines"></div>
+          <div class="final2-hearts">
+            <span class="final2-heart">&#9829;</span>
+            <span class="final2-heart">&#9829;</span>
+            <span class="final2-heart">&#9829;</span>
+            <span class="final2-heart">&#9829;</span>
+            <span class="final2-heart">&#9829;</span>
+          </div>
+          <div class="final2-title">!2 MESES CAPTURADOS!</div>
+          <div class="final2-big">02</div>
+          <div class="final2-sub">
+            BATALLAS: INFINITAS<br>
+            VICTORIAS: TODAS<br>
+            CANGAS · OVIEDO · UTRERA · SEVILLA<br>
+            ESTADO: INVENCIBLES<span class="cursor"></span>
+          </div>
         </div>
 
         <!-- PANTALLA REGISTRO -->
@@ -251,6 +376,7 @@ body{background:#1a1a1a;min-height:100vh;display:flex;align-items:center;justify
 <script>
 const START_DATE = new Date('2026-04-06T00:00:00').getTime();
 const ONE_MONTH  = new Date('2026-05-06T00:00:00');
+const TWO_MONTHS = new Date('2026-06-06T00:00:00');
 
 const OAK_LINES = [
   "iEnhorabuena, entrenador\nHERNANSITO!",
@@ -273,6 +399,8 @@ let oakIdx = 0;
 let phase = 'normal';
 let typing = false;
 let typeTimeout = null;
+let terminalStep = 0;
+const TERMINAL_ENTRIES = 8;
 
 function updateDays(){
   const days = Math.floor((Date.now() - START_DATE) / 86400000);
@@ -280,11 +408,18 @@ function updateDays(){
   if(el) el.textContent = days;
 }
 
-function isSpecialDay(){
+function isMonth1(){
   const n = new Date();
   return n.getFullYear() === ONE_MONTH.getFullYear() &&
          n.getMonth()    === ONE_MONTH.getMonth() &&
          n.getDate()     === ONE_MONTH.getDate();
+}
+
+function isMonth2(){
+  const n = new Date();
+  return n.getFullYear() === TWO_MONTHS.getFullYear() &&
+         n.getMonth()    === TWO_MONTHS.getMonth() &&
+         n.getDate()     === TWO_MONTHS.getDate();
 }
 
 function launchConfetti(){
@@ -308,6 +443,7 @@ function launchConfetti(){
   setTimeout(()=>{overlay.classList.remove('active');overlay.innerHTML='';},8000);
 }
 
+/* ── MES 1: Profesor Oak ── */
 function typeText(text, cb){
   const el = document.getElementById('oak-text');
   const next = document.getElementById('oak-next');
@@ -330,7 +466,7 @@ function typeText(text, cb){
 }
 
 function showOakLine(){
-  if(oakIdx >= OAK_LINES.length){ endEvent(); return; }
+  if(oakIdx >= OAK_LINES.length){ endMonth1Event(); return; }
   typeText(OAK_LINES[oakIdx]);
   oakIdx++;
 }
@@ -349,14 +485,50 @@ function showOakScreen(){
   showOakLine();
 }
 
-function endEvent(){
+function endMonth1Event(){
   phase = 'done';
   document.getElementById('oak-screen').classList.remove('active');
   launchConfetti();
 }
 
+/* ── MES 2: Terminal ── */
+function showTerminalEntry(idx){
+  const entries = document.querySelectorAll('.log-entry');
+  if(idx < entries.length){
+    entries[idx].classList.add('visible');
+  }
+}
+
+function startTerminal(){
+  phase = 'terminal';
+  document.getElementById('terminal-screen').classList.add('active');
+  terminalStep = 0;
+  // Mostrar primera entrada automáticamente
+  setTimeout(()=>{ showTerminalEntry(0); terminalStep = 1; }, 400);
+}
+
+function advanceTerminal(){
+  if(terminalStep < TERMINAL_ENTRIES){
+    showTerminalEntry(terminalStep);
+    terminalStep++;
+  } else {
+    endTerminal();
+  }
+}
+
+function endTerminal(){
+  phase = 'final2';
+  document.getElementById('terminal-screen').classList.remove('active');
+  document.getElementById('final2-screen').classList.add('active');
+  launchConfetti();
+  setTimeout(launchConfetti, 4000);
+}
+
+/* ── HANDLER BOTÓN A ── */
 function handleA(){
   if(phase === 'normal') return;
+
+  // Mes 1
   if(phase === 'register'){ showOakScreen(); return; }
   if(phase === 'oak'){
     if(typing){
@@ -367,7 +539,12 @@ function handleA(){
       return;
     }
     showOakLine();
+    return;
   }
+
+  // Mes 2
+  if(phase === 'terminal'){ advanceTerminal(); return; }
+  if(phase === 'final2'){ launchConfetti(); return; }
 }
 
 document.getElementById('btn-a').addEventListener('click', handleA);
@@ -377,7 +554,9 @@ document.addEventListener('keydown', e => {
 
 updateDays();
 setInterval(updateDays, 60000);
-if(isSpecialDay()) setTimeout(showRegisterScreen, 1000);
+
+if(isMonth2())      setTimeout(startTerminal,       1000);
+else if(isMonth1()) setTimeout(showRegisterScreen,  1000);
 </script>
 </body>
 </html>
